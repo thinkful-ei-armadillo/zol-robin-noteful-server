@@ -1,20 +1,20 @@
 
 const NotefulService = {
   getAll(knex, string) {
-    return knex.select("*").from(string);
+    return knex.select('*').from(string);
   },
   insert(knex, newNotes, string) {
     return knex
       .insert(newNotes)
       .into(string)
-      .returning("*")
+      .returning('*')
       .then(rows => rows[0]);
   },
   getById(knex, id, string) {
     return knex
       .from(string)
-      .select("*")
-      .where("id", id)
+      .select('*')
+      .where('id', id)
       .first();
   },
   delete(knex, id, string) {
